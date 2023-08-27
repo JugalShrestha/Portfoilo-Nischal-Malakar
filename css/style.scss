@@ -71,11 +71,17 @@ span{
     opacity: 0;
 }
 
-html{
-    scroll-behavior: smooth;
+@keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
 }
 
 body{
+    transition: .5s ease-in-out;
     min-height: 100vh;
     background: var(--p1-color);
     display: flex;
@@ -85,12 +91,18 @@ body{
     overflow-x: hidden;
     
     .nav-bar{
+        transition: .2s ease;
         pointer-events: none;
         width: 100%;
+        position: sticky;
+        z-index: 10;
+        top: 0;
         display: flex;
         padding: 3vh 4vh;
         align-items: center;
         justify-content: space-between;
+        backdrop-filter: blur(1vh);
+        background: var(--p1-color);
         border-bottom: .3vh solid var(--n1-color);
         .logo{
             transition: .2s ease;
@@ -207,15 +219,19 @@ body{
             }
         }
         .big-slogan{
-            width: 100%;
+            position: relative;
+            width: max-content;
+            min-width: 100%;
             gap: 5vh;
             padding: 2vh 0vh;
             background: linear-gradient(to left,var(--s1-color),transparent 90%);
             .slogan{
                 width: 100%;
-                border: .5vh solid var(--p1-color);
+                border: .3vh solid var(--p1-color);
                 border-left: none;
                 border-right: none;
+                display: inline-block;
+                white-space: nowrap;
                 padding: 2vh;
                 font-size: var(--big-font-size);
                 font-weight: var(--light-font-weight);
@@ -240,8 +256,8 @@ body{
                 grid-template-columns: auto auto auto auto;
                 gap: 5vh;
                 .brand{
-                    width: 20vh;
-                    height: 20vh;
+                    width: 15vh;
+                    height: 15vh;
                     position: relative;
                     display: flex;
                     flex-direction: column;
@@ -252,7 +268,6 @@ body{
                         height: 100%;
                         overflow: hidden;
                         img{
-                            filter: grayscale(95%) brightness(150%) hue-rotate(240deg);
                             object-fit: contain !important;
                         }
                     }
@@ -296,10 +311,11 @@ body{
                 .skill{
                     width: 100%;
                     height: 50vh;
-                    background: linear-gradient(to right,var(--n2-color),transparent 70%);
                     display: flex;
                     align-items: center;
                     justify-content: flex-end;
+                    gap: 2vh;
+                    background: linear-gradient(to right,var(--n2-color),transparent 70%);
                     &:nth-child(even){
                         background: linear-gradient(to left,var(--n2-color),transparent 70%);
                         justify-content: flex-start !important;
@@ -309,7 +325,15 @@ body{
                             text-align: right;
                         }
                     }
+                    .skill-overlay{
+                        z-index: 0;
+                        width: 100%;
+                        position: absolute;
+                        backdrop-filter: blur(.5vh);
+                        height: 100%;
+                    }
                     .skill-content{
+                        z-index: 1;
                         width: 30%;
                         display: flex;
                         flex-direction: column;
@@ -326,8 +350,8 @@ body{
                             text-transform: capitalize;
                         }
                         .skill-info{
-                            color: var(--n1-color);
                             width: 80%;
+                            opacity: 50%;
                         }
                     }
                 }    
@@ -486,34 +510,33 @@ body{
                 padding: 5vh 1vh !important;
                 gap: 5vh !important;
                 .skill-set{
-                    gap: 1vh !important;
+                    gap: 0vh !important;
+                    align-items: center !important;
                     .skill{
-                        width: 100% !important;
+                        width: 90% !important;
+                        height: min-content !important;
+                        padding: 5vh 1vh !important;
                         align-items: center !important;
                         justify-content: flex-start !important;
                         border-bottom: .3vh solid var(--n2-color);
                         background: none !important;
-                        &:first-child{
+                        &:first-child{    
                             border-top: .3vh solid var(--n2-color);
                         }
                         &:nth-child(even)
                         {
                             .skill-content{
                                 width: 100% !important;
-                                align-items: center !important;
-                                justify-content: center !important;
                                 .skill-info{
-                                    text-align: center !important;
+                                    width: 100% !important;
                                 }
                             }
 
                         }
                         .skill-content{
                             width: 100% !important;
-                            align-items: center !important;
-                            justify-content: center !important;
                             .skill-info{
-                                text-align: center !important;
+                                width: 100% !important;
                             }
                         }
                     }
