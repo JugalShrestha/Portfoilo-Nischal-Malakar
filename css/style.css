@@ -100,7 +100,7 @@ body .loading-screen {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(25% 25% at 25% 25%, #0d0a0a 99%, rgba(0, 0, 0, 0) 101%) 10vh 10vh/20vh 20vh, radial-gradient(25% 25% at 25% 25%, #0d0a0a 99%, rgba(0, 0, 0, 0) 101%) 0 0/20vh 20vh, radial-gradient(50% 50%, #d9d9d9 98%, rgba(0, 0, 0, 0)) 0 0/10vh 10vh, repeating-conic-gradient(#d9d9d9 0 25%, #0d0a0a 0 50%) 5vh 0/20vh 10vh;
+  background: var(--p1-color);
 }
 body .loading-screen .loading-object {
   width: 20vh;
@@ -300,21 +300,17 @@ body .everything #brand-page .brands .brand .brand-image {
   height: 100%;
   overflow: hidden;
 }
+@media (hover: hover) {
+  body .everything #brand-page .brands .brand .brand-image {
+    opacity: 50%;
+  }
+  body .everything #brand-page .brands .brand .brand-image:hover {
+    opacity: 100%;
+  }
+}
 body .everything #brand-page .brands .brand .brand-image img {
   -o-object-fit: contain !important;
      object-fit: contain !important;
-}
-body .everything #brand-page .brands .brand .brand-description {
-  position: absolute;
-  width: 100%;
-  display: none;
-  align-items: flex-end;
-  justify-content: center;
-  height: 100%;
-  padding: 1vh;
-  color: var(--s1-color);
-  font-size: calc(var(--text-size) + 1vh);
-  font-weight: var(--header-font-weight);
 }
 body .everything #skills-page {
   gap: 10vh;
@@ -378,6 +374,7 @@ body .everything #skills-page .skill-set .skill .skill-content .skill-icon {
   width: 10vh;
   height: 10vh;
   background: var(--n2-color);
+  padding: 1vh;
 }
 body .everything #skills-page .skill-set .skill .skill-content .skill-header {
   font-size: var(--header-font-size);
