@@ -375,6 +375,7 @@ body .everything #skills-page .skill-set .skill .skill-content .skill-icon {
   height: 10vh;
   background: var(--n2-color);
   padding: 1vh;
+  border-radius: 0.5vh;
 }
 body .everything #skills-page .skill-set .skill .skill-content .skill-header {
   font-size: var(--header-font-size);
