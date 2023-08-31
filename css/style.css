@@ -26,6 +26,7 @@ img, svg {
 
 ::-webkit-scrollbar {
   width: 1vh;
+  background: var(--s1-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -93,6 +94,27 @@ body {
   justify-content: center;
   overflow-x: hidden;
 }
+body .loading-screen {
+  transition: 0.2s ease-in-out;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(25% 25% at 25% 25%, #0d0a0a 99%, rgba(0, 0, 0, 0) 101%) 10vh 10vh/20vh 20vh, radial-gradient(25% 25% at 25% 25%, #0d0a0a 99%, rgba(0, 0, 0, 0) 101%) 0 0/20vh 20vh, radial-gradient(50% 50%, #d9d9d9 98%, rgba(0, 0, 0, 0)) 0 0/10vh 10vh, repeating-conic-gradient(#d9d9d9 0 25%, #0d0a0a 0 50%) 5vh 0/20vh 10vh;
+}
+body .loading-screen .loading-object {
+  width: 20vh;
+  height: 20vh;
+  border: 3vh var(--n2-color) double;
+  border-left-style: solid;
+  border-radius: 50%;
+  animation: spinner-aib1d7 0.75s infinite linear;
+}
+@keyframes spinner-aib1d7 {
+  to {
+    transform: rotate(360deg);
+  }
+}
 body .nav-bar {
   transition: 0.2s ease;
   pointer-events: none;
@@ -135,8 +157,10 @@ body .nav-bar .nav-options .nav-option {
   }
 }
 body .everything-whole {
+  transition: 0.2s ease-in-out;
+  opacity: 0;
   width: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;

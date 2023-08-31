@@ -20,6 +20,9 @@
 
 </head>
 <body>
+    <div class="loading-screen">
+        <div class="loading-object"></div>
+    </div>
     <div class="everything-whole">
         <div class="nav-bar">
             <div class="nav-option logo">Nischal. M</div>
@@ -243,7 +246,95 @@
         </div>
     </div>
 
-    <script src="scripts/app.js"></script>
+    <script>
+    
+    //Loading screen animation
+    const LoadingScreen = document.querySelector('.loading-screen');
+    const Everything = document.querySelector('.everything-whole');
+
+    let deviceHeight = window.innerHeight;
+
+    //Determines the loadingTime for the loadingScreen
+    let LoadingTime = 1000;
+
+    LoadingScreen.style.height = deviceHeight-1 + 'px';
+
+    window.addEventListener('resize',()=>{    
+        deviceHeight = window.innerHeight
+        LoadingScreen.style.height = deviceHeight + 'px';
+    })
+
+    // For when the website finish loading
+    window.addEventListener('load',()=>{
+        setTimeout(()=>{
+            LoadingScreen.style.opacity = "0";
+            Everything.style.opacity = "1";
+        },LoadingTime/2)
+        setTimeout(()=>{
+            LoadingScreen.style.display = "none";
+            Everything.style.display = "flex";
+        },LoadingTime)
+    })
+
+    function checkScreenSize(){
+        {
+            const observer = new IntersectionObserver(entities=>{
+                entities.forEach(entity=>{
+                    if(entity.isIntersecting)
+                    {
+                        entity.target.classList.add('show');
+                    }else
+                    {
+                        entity.target.classList.remove('show');
+                    }
+                })
+            })
+
+            const div = document.querySelectorAll('.slide');
+
+            div.forEach(entity=>{
+                observer.observe(entity);
+            })
+        }
+    }
+
+    checkScreenSize();
+
+    //For animating NavBar on scroll
+
+    function ChangeOnScroll(){
+        const navBar = document.querySelector('.nav-bar');
+        const navOptions = document.querySelectorAll(".nav-option");
+        const scrolledPos = window.scrollY;
+
+        if(scrolledPos > navBar.clientHeight)
+        {
+            navBar.style.padding = "1vh 4vh";
+            navBar.style.background = "rgba(255,255,255,0.5)";
+            navOptions.forEach(option => {
+                option.style.color = "var(--p1-color)";
+            })
+        }
+        else{
+            navBar.style.padding = "3vh 4vh";
+            navBar.style.background = "var(--p1-color)"
+            navOptions.forEach(option => {
+                option.style.color = "var(--s1-color)";
+            })
+        }
+    }
+
+    window.addEventListener('scroll',ChangeOnScroll);
+
+    const navOptions = document.querySelectorAll('.nav-option')
+    const pages = document.querySelectorAll('.pages')
+
+    navOptions.forEach((option,index)=>{
+        option.addEventListener("click",()=>{
+            pages[index].scrollIntoView({behavior: "smooth"})
+        })
+    })
+    </script>
 
 </body>
 </html>
