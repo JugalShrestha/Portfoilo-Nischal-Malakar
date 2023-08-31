@@ -364,7 +364,6 @@ body{
                         .skill-icon{
                             width: 10vh;
                             height: 10vh;
-                            background: var(--n2-color);
                             padding: 1vh;
                             border-radius: .5vh;
                         }
@@ -481,8 +480,8 @@ body{
                 .slogan{
                     border-top: .3vh solid var(--p1-color) !important;
                     border-bottom: .3vh solid var(--p1-color) !important;
-                    font-size: var(--header-font-size);
-                    font-weight: var(--header-font-weight);
+                    font-size: 3vh;
+                    font-weight: 400;
                 }
             }
             #hero-page{

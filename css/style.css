@@ -373,7 +373,6 @@ body .everything #skills-page .skill-set .skill .skill-content {
 body .everything #skills-page .skill-set .skill .skill-content .skill-icon {
   width: 10vh;
   height: 10vh;
-  background: var(--n2-color);
   padding: 1vh;
   border-radius: 0.5vh;
 }
@@ -480,8 +479,8 @@ body .everything #contact-page .contacts .contact:hover svg {
   .everything-whole .everything .big-slogan .slogan {
     border-top: 0.3vh solid var(--p1-color) !important;
     border-bottom: 0.3vh solid var(--p1-color) !important;
-    font-size: var(--header-font-size);
-    font-weight: var(--header-font-weight);
+    font-size: 3vh;
+    font-weight: 400;
   }
   .everything-whole .everything #hero-page {
     padding-left: 0 !important;
