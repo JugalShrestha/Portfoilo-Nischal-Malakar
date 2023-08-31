@@ -294,7 +294,7 @@ body .everything #brand-page .brands .brand {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5vh;
+  border-radius: 1vh;
   padding: 2vh;
   background: conic-gradient(var(--n1-color), var(--s1-color));
 }
@@ -423,6 +423,10 @@ body .everything #contact-page .email button {
 body .everything #contact-page .email button:hover {
   opacity: 50%;
 }
+body .everything #contact-page .email .send-status {
+  width: 100%;
+  text-align: center;
+}
 body .everything #contact-page .contacts {
   display: flex;
   align-items: center;
@@ -432,13 +436,18 @@ body .everything #contact-page .contacts {
 body .everything #contact-page .contacts .contact {
   width: 5vh;
   height: 5vh;
+  cursor: pointer;
 }
 body .everything #contact-page .contacts .contact svg {
   transition: 0.2s ease;
-  filter: grayscale(100%);
 }
-body .everything #contact-page .contacts .contact:hover svg {
-  filter: grayscale(0%);
+@media (hover: hover) {
+  body .everything #contact-page .contacts .contact svg {
+    filter: grayscale(100%);
+  }
+  body .everything #contact-page .contacts .contact svg:hover {
+    filter: grayscale(0%) !important;
+  }
 }
 
 @media (max-width: 980px) {
@@ -514,7 +523,7 @@ body .everything #contact-page .contacts .contact:hover svg {
   }
   .everything-whole .everything #brand-page {
     gap: 2vh !important;
-    padding: 4vh 1vh !important;
+    padding: 4vh 2vh !important;
   }
   .everything-whole .everything #brand-page .brands {
     grid-template-columns: auto auto auto !important;
