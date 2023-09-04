@@ -531,7 +531,7 @@ body .everything #contact-page .contacts .contact svg {
   }
   .everything-whole .everything #brand-page .brands .brand {
     width: auto !important;
-    height: auto !important;
+    height: 15vh !important;
   }
   .everything-whole .everything #skills-page {
     padding: 5vh 1vh !important;
